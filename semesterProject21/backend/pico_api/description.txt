@@ -1,0 +1,9 @@
+the pico w, does a request on /api/
+there are 3 requests:
+GET /api/users : to request the username
+POST /api/login/: to login, the pico sends the username
+POST /api/logout/ : to logout the pico sends username
+POST /api/users/<int:id> : to display a single user or a user's profile
+
+the server records the device loginsessions as a model that has a many to one relationship with the User model.
+the login through the api is a different thing to the normal login on the website

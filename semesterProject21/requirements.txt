@@ -1,0 +1,5 @@
+django
+psycopg
+psycopg_binary
+django-decouple
+django-cors-headers

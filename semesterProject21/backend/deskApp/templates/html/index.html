@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Welcome {{ username }}!</h1>
+
+        <p>Your preferred desk heights:
+            sitting: 
+            {% if sitting is not None %}
+                {{ sitting }} cm
+            {% else %}
+                not set
+            {% endif %}
+      standing: 
+            {% if standing is not None %}
+                {{ standing }} cm
+            {% else %}
+                not set
+            {% endif %}
+        </p>
+
+        <form method="post" action="{% url 'set_height' %}">
+            {% csrf_token %}
+            <label for="sitting">Set preferred height (cm)</label>
+            <input id="sitting" name="sitting" type="number" step="0.1" value="{{ sitting }}" />
+            <button type="submit">Save</button>
+        </form>
+
+        <form method="post" action="{% url 'set_height' %}">
+            {% csrf_token %}
+            <label for="standing">Set preferred height (cm)</label>
+            <input id="standing" name="standing" type="number" step="0.1" value="{{ standing }}" />
+            <button type="submit">Save</button>
+        </form>
+
+        <script src="" async defer></script>
+    </body>
+</html>
